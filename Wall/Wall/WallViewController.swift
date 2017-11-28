@@ -1,5 +1,5 @@
 //
-//  WallGalleryViewController.swift
+//  WallViewController.swift
 //  Wall
 //
 //  Created by Nicolai Garcia on 11/27/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WallGalleryViewController: UIViewController {
+class WallViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

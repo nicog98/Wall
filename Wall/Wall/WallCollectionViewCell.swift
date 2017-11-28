@@ -1,5 +1,5 @@
 //
-//  WallGalleryCollectionViewCell.swift
+//  WallCollectionViewCell.swift
 //  Wall
 //
 //  Created by Nicolai Garcia on 11/27/17.
@@ -8,6 +8,6 @@
 
 import UIKit
 
-class WallGalleryCollectionViewCell: UICollectionViewCell {
+class WallCollectionViewCell: UICollectionViewCell {
     
 }
