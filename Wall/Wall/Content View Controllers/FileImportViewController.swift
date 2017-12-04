@@ -8,12 +8,22 @@
 
 import UIKit
 
-class SocialMediaImportViewController: UIViewController {
+class FileImportViewController: UIViewController {
 
+    @IBAction func close(_ sender: UIBarButtonItem?) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        let swipe = UISwipeGestureRecognizer(target: self, action: #selector(closeSwipe(_:)))
+        swipe.direction = .down
+        self.view.addGestureRecognizer(swipe)
+    }
+    
+    @objc func closeSwipe(_ sender: UISwipeGestureRecognizer) {
+        close(nil)
     }
 
     override func didReceiveMemoryWarning() {
