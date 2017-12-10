@@ -8,65 +8,156 @@
 
 import UIKit
 
-class WallGalleryTableViewController: UITableViewController {
+class WallGalleryTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate,
+    WallGalleryTableViewCellDelegate, WallViewControllerDelegate {
+    
+    func saveWall(wall: Wall, at index: Int) {
+        wallGallery.walls[index] = wall
+        saveWallGalleryDocument()
+    }
+    
+    func saveWallGalleryDocument() {
+        document?.wallGallery = wallGallery
+        document?.save(to: documentURL!, for: .forOverwriting, completionHandler: nil)
+    }
+    
+    @IBAction func addWall(_ sender: Any) {
+        performSegue(withIdentifier: "popoverSegue", sender: sender)
+        /*
+        var wall = Wall()
+        wall.name = "NEW WALL"
+        wallGallery.walls.append(wall)
+        saveWallGalleryDocument()
+        tableView.reloadData()
+ */
+    }
+    
+    var document: WallGalleryDocument?
+    var documentURL: URL?
+    var ubiquityURL: URL?
+    var metaDataQuery: NSMetadataQuery?
+    
+    var wallGallery: WallGallery = WallGallery()
+    
+    var selectedWall: Wall?
+    
+    func openDocument(query: NSMetadataQuery) {
+        if query.resultCount == 1 {
+            if let resultURL = query.value(ofAttribute: NSMetadataItemURLKey,
+                                           forResultAt: 0) as? URL {
+                document = WallGalleryDocument(fileURL: resultURL)
+                document?.open(completionHandler: { (success) in
+                    if success {
+                        print("iCloud File Open Ok!")
+                        self.wallGallery = (self.document?.wallGallery)!
+                        self.ubiquityURL = resultURL
+                    } else {
+                        print("iCloud File Open Failed!")
+                    }
+                })
+            }
+        } else {
+            document = WallGalleryDocument(fileURL: ubiquityURL!)
+            
+            document?.save(to: ubiquityURL!,
+                        for: .forCreating,
+                        completionHandler: { success in
+                            if success {
+                                print("iCloud create ok")
+                            } else {
+                                print("iCloud create failed")
+                            }
+            })
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        let fileManager = FileManager.default
+        
+        let dirPaths = fileManager.urls(for: .documentDirectory,
+                                        in: .userDomainMask)
+        documentURL = dirPaths[0].appendingPathComponent(WallGalleryTableViewController.constants.fileName)
+        document = WallGalleryDocument(fileURL: documentURL!)
+        
+        if fileManager.fileExists(atPath: (documentURL?.path)!) {
+            document?.open(completionHandler: { (success) in
+                if success {
+                    self.wallGallery = (self.document?.wallGallery)!
+                    self.tableView.reloadData()
+                }
+            })
+        } else {
+            document?.save(to: documentURL!, for: .forCreating, completionHandler: nil)
+        }
+        
+        self.navigationItem.leftBarButtonItem = self.editButtonItem
+        
+        self.tableView.rowHeight = self.view.frame.size.height/WallGalleryTableViewController.constants.heightDivider
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return wallGallery.walls.count
     }
-
-    /*
+    
+    func fetchImage(imageURL: URL) -> UIImage? {
+        do {
+            let contents = try Data(contentsOf: imageURL)
+            return UIImage(data: contents)
+        } catch {
+            return nil
+        }
+    }
+    
+    func findHeader(wall: Wall) -> UIImage {
+        let voidImage = UIImage()
+        for post in wall.posts {
+            if post.data != nil {
+                return UIImage(data: post.data!) ?? voidImage
+            } else if post.url != nil {
+                let image = fetchImage(imageURL: post.url!)
+                return image ?? voidImage
+            }
+        }
+        return voidImage
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let wall = wallGallery.walls[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "wallGalleryCell", for: indexPath)
 
-        // Configure the cell...
+        if let wallCell = cell as? WallGalleryTableViewCell {
+            wallCell.delegate = self
+            wallCell.headerImage.image = findHeader(wall: wall)
+            wallCell.textField.text = wall.name
+            wallCell.textView.text = wall.description
+        }
 
         return cell
     }
-    */
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
+    // Override to support editing the table.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            wallGallery.walls.remove(at: indexPath.row)
+            tableView.performBatchUpdates({
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            })
+            saveWallGalleryDocument()
+        }
     }
-    */
-
+    
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
@@ -74,22 +165,60 @@ class WallGalleryTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // Override to support conditional rearranging of the table view.
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
     }
-    */
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if let wallView = segue.destination as? WallViewController {
+            wallView.wall = selectedWall
+            wallView.delegate = self
+        } else if let popMenuViewController = segue.destination as? PopMenuTableViewController {
+            popMenuViewController.modalPresentationStyle = .popover
+            popMenuViewController.popoverPresentationController?.delegate = self
+        }
     }
-    */
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+    
+    // MARK: - Table View Cell Delegate Methods
+    
+    func longPress(longPressDelegatedFrom cell: WallGalleryTableViewCell) {
+        let indexPath = tableView.indexPath(for: cell)
+        cell.resignationHandler = { [weak self, unowned cell] in
+            if let updatedName = cell.textField.text {
+                self?.wallGallery.walls[(indexPath?.row)!].name = updatedName
+                self?.saveWallGalleryDocument()
+            }
+        }
+    }
+    
+    func tap(tapDelegatedFrom cell: WallGalleryTableViewCell) {
+        if let index = tableView.indexPath(for: cell)?.row {
+            selectedWall = wallGallery.walls[index]
+            selectedWall!.wallIndex = index
+            performSegue(withIdentifier: "showWall", sender: self)
+        }
+    }
+    
+    func descriptionEdited(descriptionEditedOn cell: WallGalleryTableViewCell) {
+        if let index = tableView.indexPath(for: cell)?.row {
+            wallGallery.walls[index].description = cell.textView.text
+            saveWall(wall: wallGallery.walls[index], at: index)
+        }
+    }
 
 }
+
+extension WallGalleryTableViewController {
+    private struct constants {
+        static let fileName: String = "wallgalleryfile.json"
+        static let heightDivider: CGFloat = 2.5
+    }
+}
+
