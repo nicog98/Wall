@@ -8,22 +8,70 @@
 
 /* Begin PBXBuildFile section */
 		3F0743B01FCC7E9A00582591 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0743AF1FCC7E9A00582591 /* AppDelegate.swift */; };
-		3F0743B21FCC7E9A00582591 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0743B11FCC7E9A00582591 /* ViewController.swift */; };
 		3F0743B51FCC7E9A00582591 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F0743B31FCC7E9A00582591 /* Main.storyboard */; };
 		3F0743B71FCC7E9A00582591 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F0743B61FCC7E9A00582591 /* Assets.xcassets */; };
 		3F0743BA1FCC7E9A00582591 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F0743B81FCC7E9A00582591 /* LaunchScreen.storyboard */; };
 		3F0743C31FCC7F0B00582591 /* Wall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0743C21FCC7F0B00582591 /* Wall.swift */; };
+		3F0743C51FCC842500582591 /* WallPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0743C41FCC842500582591 /* WallPost.swift */; };
+		3F0743C71FCC993000582591 /* WallGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0743C61FCC992F00582591 /* WallGallery.swift */; };
+		3F0A50511FD219D9006B6046 /* WallGalleryDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A50501FD219D9006B6046 /* WallGalleryDocument.swift */; };
+		3F18CDE71FCF614D00B15F93 /* MovieWallCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F18CDE61FCF614D00B15F93 /* MovieWallCollectionViewCell.swift */; };
+		3F1D74D71FCF6F580056E7F9 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D74D61FCF6F580056E7F9 /* ImageViewController.swift */; };
+		3F1E47F11FCCC2B200F64B0E /* WallGalleryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1E47F01FCCC2B200F64B0E /* WallGalleryTableViewController.swift */; };
+		3F1E47F31FCCC33600F64B0E /* WallGalleryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1E47F21FCCC33600F64B0E /* WallGalleryTableViewCell.swift */; };
+		3F29A24F1FDE08150022B5FF /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F29A24E1FDE08150022B5FF /* SliderViewController.swift */; };
+		3F3E667B1FCCE72900ED7BF4 /* WallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E667A1FCCE72900ED7BF4 /* WallViewController.swift */; };
+		3F3E667D1FCCE7E200ED7BF4 /* ImageWallCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E667C1FCCE7E200ED7BF4 /* ImageWallCollectionViewCell.swift */; };
+		3F43BD0E1FD35B0B00CB9AE7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F43BD0D1FD35B0B00CB9AE7 /* MapKit.framework */; };
+		3F43BD101FD36FD900CB9AE7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F43BD0F1FD36FD900CB9AE7 /* MapViewController.swift */; };
+		3F43BD121FD38A0C00CB9AE7 /* MapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F43BD111FD38A0C00CB9AE7 /* MapAnnotation.swift */; };
+		3F44C2CC1FCDF2500050E641 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F44C2CB1FCDF2500050E641 /* Utilities.swift */; };
+		3F48BE921FD0BA60002C5C2A /* DrawingWallCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F48BE911FD0BA60002C5C2A /* DrawingWallCollectionViewCell.swift */; };
+		3F48BE941FD0D9B0002C5C2A /* MusicWallCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F48BE931FD0D9B0002C5C2A /* MusicWallCollectionViewCell.swift */; };
+		3F883D881FDCABFE0094C0DA /* NamePopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F883D871FDCABFE0094C0DA /* NamePopTableViewCell.swift */; };
+		3F883D8B1FDCACC20094C0DA /* ColorPopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F883D8A1FDCACC20094C0DA /* ColorPopTableViewCell.swift */; };
+		3F883D8D1FDCAFDE0094C0DA /* PopMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F883D8C1FDCAFDE0094C0DA /* PopMenuTableViewController.swift */; };
+		3F97F4C61FD1CF7600E3561B /* WallDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F97F4C51FD1CF7600E3561B /* WallDocument.swift */; };
+		3FC0978A1FD5CBF200C6CA06 /* ImportWallCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC097891FD5CBF200C6CA06 /* ImportWallCollectionViewCell.swift */; };
+		3FCCDE4A1FD1798400FEF038 /* JournalWallCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCCDE491FD1798400FEF038 /* JournalWallCollectionViewCell.swift */; };
+		3FE39AFA1FCE4D7500406878 /* DrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE39AF91FCE4D7500406878 /* DrawViewController.swift */; };
+		3FE39AFC1FCE4DD300406878 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE39AFB1FCE4DD300406878 /* CameraViewController.swift */; };
+		3FE39AFE1FCE4DE700406878 /* JournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE39AFD1FCE4DE700406878 /* JournalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3F0743AC1FCC7E9A00582591 /* Wall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F0743AF1FCC7E9A00582591 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3F0743B11FCC7E9A00582591 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3F0743B41FCC7E9A00582591 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3F0743B61FCC7E9A00582591 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F0743B91FCC7E9A00582591 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F0743BB1FCC7E9A00582591 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F0743C21FCC7F0B00582591 /* Wall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wall.swift; sourceTree = "<group>"; };
+		3F0743C41FCC842500582591 /* WallPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallPost.swift; sourceTree = "<group>"; };
+		3F0743C61FCC992F00582591 /* WallGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallGallery.swift; sourceTree = "<group>"; };
+		3F0A50501FD219D9006B6046 /* WallGalleryDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallGalleryDocument.swift; sourceTree = "<group>"; };
+		3F18CDE61FCF614D00B15F93 /* MovieWallCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieWallCollectionViewCell.swift; sourceTree = "<group>"; };
+		3F1D74D61FCF6F580056E7F9 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		3F1E47F01FCCC2B200F64B0E /* WallGalleryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallGalleryTableViewController.swift; sourceTree = "<group>"; };
+		3F1E47F21FCCC33600F64B0E /* WallGalleryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallGalleryTableViewCell.swift; sourceTree = "<group>"; };
+		3F29A24E1FDE08150022B5FF /* SliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderViewController.swift; sourceTree = "<group>"; };
+		3F3E667A1FCCE72900ED7BF4 /* WallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallViewController.swift; sourceTree = "<group>"; };
+		3F3E667C1FCCE7E200ED7BF4 /* ImageWallCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageWallCollectionViewCell.swift; sourceTree = "<group>"; };
+		3F43BD0D1FD35B0B00CB9AE7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3F43BD0F1FD36FD900CB9AE7 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		3F43BD111FD38A0C00CB9AE7 /* MapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotation.swift; sourceTree = "<group>"; };
+		3F44C2CB1FCDF2500050E641 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		3F48BE911FD0BA60002C5C2A /* DrawingWallCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingWallCollectionViewCell.swift; sourceTree = "<group>"; };
+		3F48BE931FD0D9B0002C5C2A /* MusicWallCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicWallCollectionViewCell.swift; sourceTree = "<group>"; };
+		3F883D871FDCABFE0094C0DA /* NamePopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamePopTableViewCell.swift; sourceTree = "<group>"; };
+		3F883D8A1FDCACC20094C0DA /* ColorPopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPopTableViewCell.swift; sourceTree = "<group>"; };
+		3F883D8C1FDCAFDE0094C0DA /* PopMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopMenuTableViewController.swift; sourceTree = "<group>"; };
+		3F97F4C51FD1CF7600E3561B /* WallDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallDocument.swift; sourceTree = "<group>"; };
+		3FC097891FD5CBF200C6CA06 /* ImportWallCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWallCollectionViewCell.swift; sourceTree = "<group>"; };
+		3FCCDE491FD1798400FEF038 /* JournalWallCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalWallCollectionViewCell.swift; sourceTree = "<group>"; };
+		3FE39AF91FCE4D7500406878 /* DrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawViewController.swift; sourceTree = "<group>"; };
+		3FE39AFB1FCE4DD300406878 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		3FE39AFD1FCE4DE700406878 /* JournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F43BD0E1FD35B0B00CB9AE7 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +91,7 @@
 			children = (
 				3F0743AE1FCC7E9A00582591 /* Wall */,
 				3F0743AD1FCC7E9A00582591 /* Products */,
+				3F43BD0C1FD35B0B00CB9AE7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,9 +106,9 @@
 		3F0743AE1FCC7E9A00582591 /* Wall */ = {
 			isa = PBXGroup;
 			children = (
-				3F0743B11FCC7E9A00582591 /* ViewController.swift */,
 				3F0743B31FCC7E9A00582591 /* Main.storyboard */,
-				3F0743C21FCC7F0B00582591 /* Wall.swift */,
+				3F98C8251FCC9E41002BC1AC /* Wall */,
+				3F98C8241FCC9E28002BC1AC /* Wall Gallery */,
 				3F0743BB1FCC7E9A00582591 /* Info.plist */,
 				3F0743C11FCC7EC800582591 /* Supporting Files */,
 			);
@@ -68,11 +118,90 @@
 		3F0743C11FCC7EC800582591 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3F44C2CB1FCDF2500050E641 /* Utilities.swift */,
 				3F0743AF1FCC7E9A00582591 /* AppDelegate.swift */,
 				3F0743B61FCC7E9A00582591 /* Assets.xcassets */,
 				3F0743B81FCC7E9A00582591 /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3F18CDE31FCF37B400B15F93 /* Content Collection View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3F3E667C1FCCE7E200ED7BF4 /* ImageWallCollectionViewCell.swift */,
+				3F18CDE61FCF614D00B15F93 /* MovieWallCollectionViewCell.swift */,
+				3F48BE911FD0BA60002C5C2A /* DrawingWallCollectionViewCell.swift */,
+				3F48BE931FD0D9B0002C5C2A /* MusicWallCollectionViewCell.swift */,
+				3FCCDE491FD1798400FEF038 /* JournalWallCollectionViewCell.swift */,
+				3FC097891FD5CBF200C6CA06 /* ImportWallCollectionViewCell.swift */,
+			);
+			path = "Content Collection View Cells";
+			sourceTree = "<group>";
+		};
+		3F43BD0C1FD35B0B00CB9AE7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3F43BD0D1FD35B0B00CB9AE7 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3F43BD131FD38B4400CB9AE7 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				3F43BD0F1FD36FD900CB9AE7 /* MapViewController.swift */,
+				3F43BD111FD38A0C00CB9AE7 /* MapAnnotation.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		3F883D891FDCAC420094C0DA /* Pop Menu Table View */ = {
+			isa = PBXGroup;
+			children = (
+				3F883D8C1FDCAFDE0094C0DA /* PopMenuTableViewController.swift */,
+				3F883D8A1FDCACC20094C0DA /* ColorPopTableViewCell.swift */,
+				3F883D871FDCABFE0094C0DA /* NamePopTableViewCell.swift */,
+			);
+			path = "Pop Menu Table View";
+			sourceTree = "<group>";
+		};
+		3F98C8241FCC9E28002BC1AC /* Wall Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				3F883D891FDCAC420094C0DA /* Pop Menu Table View */,
+				3F1E47F01FCCC2B200F64B0E /* WallGalleryTableViewController.swift */,
+				3F1E47F21FCCC33600F64B0E /* WallGalleryTableViewCell.swift */,
+				3F0743C61FCC992F00582591 /* WallGallery.swift */,
+				3F0A50501FD219D9006B6046 /* WallGalleryDocument.swift */,
+			);
+			path = "Wall Gallery";
+			sourceTree = "<group>";
+		};
+		3F98C8251FCC9E41002BC1AC /* Wall */ = {
+			isa = PBXGroup;
+			children = (
+				3F3E667A1FCCE72900ED7BF4 /* WallViewController.swift */,
+				3F97F4C51FD1CF7600E3561B /* WallDocument.swift */,
+				3F1D74D61FCF6F580056E7F9 /* ImageViewController.swift */,
+				3F0743C21FCC7F0B00582591 /* Wall.swift */,
+				3F0743C41FCC842500582591 /* WallPost.swift */,
+				3F29A24E1FDE08150022B5FF /* SliderViewController.swift */,
+				3F43BD131FD38B4400CB9AE7 /* Map */,
+				3F18CDE31FCF37B400B15F93 /* Content Collection View Cells */,
+				3FE39B011FCE4E0800406878 /* Content View Controllers */,
+			);
+			path = Wall;
+			sourceTree = "<group>";
+		};
+		3FE39B011FCE4E0800406878 /* Content View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3FE39AF91FCE4D7500406878 /* DrawViewController.swift */,
+				3FE39AFB1FCE4DD300406878 /* CameraViewController.swift */,
+				3FE39AFD1FCE4DE700406878 /* JournalViewController.swift */,
+			);
+			path = "Content View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -108,6 +237,11 @@
 					3F0743AB1FCC7E9A00582591 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -147,9 +281,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F0743B21FCC7E9A00582591 /* ViewController.swift in Sources */,
+				3F29A24F1FDE08150022B5FF /* SliderViewController.swift in Sources */,
+				3FE39AFA1FCE4D7500406878 /* DrawViewController.swift in Sources */,
+				3F3E667B1FCCE72900ED7BF4 /* WallViewController.swift in Sources */,
+				3F883D8B1FDCACC20094C0DA /* ColorPopTableViewCell.swift in Sources */,
+				3F0743C71FCC993000582591 /* WallGallery.swift in Sources */,
+				3F0A50511FD219D9006B6046 /* WallGalleryDocument.swift in Sources */,
+				3F1D74D71FCF6F580056E7F9 /* ImageViewController.swift in Sources */,
+				3F883D8D1FDCAFDE0094C0DA /* PopMenuTableViewController.swift in Sources */,
 				3F0743C31FCC7F0B00582591 /* Wall.swift in Sources */,
+				3F48BE941FD0D9B0002C5C2A /* MusicWallCollectionViewCell.swift in Sources */,
+				3F883D881FDCABFE0094C0DA /* NamePopTableViewCell.swift in Sources */,
+				3F43BD121FD38A0C00CB9AE7 /* MapAnnotation.swift in Sources */,
+				3FE39AFC1FCE4DD300406878 /* CameraViewController.swift in Sources */,
+				3FCCDE4A1FD1798400FEF038 /* JournalWallCollectionViewCell.swift in Sources */,
 				3F0743B01FCC7E9A00582591 /* AppDelegate.swift in Sources */,
+				3F48BE921FD0BA60002C5C2A /* DrawingWallCollectionViewCell.swift in Sources */,
+				3FC0978A1FD5CBF200C6CA06 /* ImportWallCollectionViewCell.swift in Sources */,
+				3F0743C51FCC842500582591 /* WallPost.swift in Sources */,
+				3F43BD101FD36FD900CB9AE7 /* MapViewController.swift in Sources */,
+				3F97F4C61FD1CF7600E3561B /* WallDocument.swift in Sources */,
+				3F1E47F31FCCC33600F64B0E /* WallGalleryTableViewCell.swift in Sources */,
+				3F3E667D1FCCE7E200ED7BF4 /* ImageWallCollectionViewCell.swift in Sources */,
+				3F44C2CC1FCDF2500050E641 /* Utilities.swift in Sources */,
+				3FE39AFE1FCE4DE700406878 /* JournalViewController.swift in Sources */,
+				3F1E47F11FCCC2B200F64B0E /* WallGalleryTableViewController.swift in Sources */,
+				3F18CDE71FCF614D00B15F93 /* MovieWallCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +444,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FKBJL37HPQ;
 				INFOPLIST_FILE = Wall/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nicolaig.Wall;
@@ -301,6 +459,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FKBJL37HPQ;
 				INFOPLIST_FILE = Wall/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nicolaig.Wall;

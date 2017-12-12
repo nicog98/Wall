@@ -2,6 +2,13 @@
 //  WallGalleryTableViewController.swift
 //  Wall
 //
+//  Table View Controller that holds all user-created walls.
+//  Creates a document containing these walls that is opened on the start of the app. (Persistence)
+//
+//  APIs Used:
+//      UIPopoverPresentationController 2 - Presents name/color selection view as popover when user taps on "+"
+//      UITableView 2 - Used with custom cells
+//
 //  Created by Nicolai Garcia on 11/27/17.
 //  Copyright © 2017 Nicolai Garcia. All rights reserved.
 //
@@ -9,7 +16,7 @@
 import UIKit
 
 class WallGalleryTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate,
-    WallGalleryTableViewCellDelegate, WallViewControllerDelegate {
+WallGalleryTableViewCellDelegate, WallViewControllerDelegate, PopMenuTableViewControllerDelegate {
     
     func saveWall(wall: Wall, at index: Int) {
         wallGallery.walls[index] = wall
@@ -23,13 +30,6 @@ class WallGalleryTableViewController: UITableViewController, UIPopoverPresentati
     
     @IBAction func addWall(_ sender: Any) {
         performSegue(withIdentifier: "popoverSegue", sender: sender)
-        /*
-        var wall = Wall()
-        wall.name = "NEW WALL"
-        wallGallery.walls.append(wall)
-        saveWallGalleryDocument()
-        tableView.reloadData()
- */
     }
     
     var document: WallGalleryDocument?
@@ -40,36 +40,6 @@ class WallGalleryTableViewController: UITableViewController, UIPopoverPresentati
     var wallGallery: WallGallery = WallGallery()
     
     var selectedWall: Wall?
-    
-    func openDocument(query: NSMetadataQuery) {
-        if query.resultCount == 1 {
-            if let resultURL = query.value(ofAttribute: NSMetadataItemURLKey,
-                                           forResultAt: 0) as? URL {
-                document = WallGalleryDocument(fileURL: resultURL)
-                document?.open(completionHandler: { (success) in
-                    if success {
-                        print("iCloud File Open Ok!")
-                        self.wallGallery = (self.document?.wallGallery)!
-                        self.ubiquityURL = resultURL
-                    } else {
-                        print("iCloud File Open Failed!")
-                    }
-                })
-            }
-        } else {
-            document = WallGalleryDocument(fileURL: ubiquityURL!)
-            
-            document?.save(to: ubiquityURL!,
-                        for: .forCreating,
-                        completionHandler: { success in
-                            if success {
-                                print("iCloud create ok")
-                            } else {
-                                print("iCloud create failed")
-                            }
-            })
-        }
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
@@ -136,14 +106,22 @@ class WallGalleryTableViewController: UITableViewController, UIPopoverPresentati
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let wall = wallGallery.walls[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "wallGalleryCell", for: indexPath)
-
+        
         if let wallCell = cell as? WallGalleryTableViewCell {
             wallCell.delegate = self
             wallCell.headerImage.image = findHeader(wall: wall)
+            wallCell.headerImage.layer.cornerRadius = WallGalleryTableViewController.constants.cornerRadius
             wallCell.textField.text = wall.name
-            wallCell.textView.text = wall.description
+            wallCell.textView.text = wall.description ?? "Description"
+            wallCell.textView.layer.cornerRadius = WallGalleryTableViewController.constants.cornerRadius
+            wallCell.textView.isOpaque = false
         }
-
+        if let colorValues = wall.colorValues {
+            cell.backgroundColor = UIColor(red: CGFloat(colorValues[0]),
+                                           green: CGFloat(colorValues[1]),
+                                           blue: CGFloat(colorValues[2]),
+                                           alpha: CGFloat(colorValues[3]))
+        }
         return cell
     }
 
@@ -157,13 +135,6 @@ class WallGalleryTableViewController: UITableViewController, UIPopoverPresentati
             saveWallGalleryDocument()
         }
     }
-    
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
 
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
@@ -179,6 +150,7 @@ class WallGalleryTableViewController: UITableViewController, UIPopoverPresentati
         } else if let popMenuViewController = segue.destination as? PopMenuTableViewController {
             popMenuViewController.modalPresentationStyle = .popover
             popMenuViewController.popoverPresentationController?.delegate = self
+            popMenuViewController.delegate = self
         }
     }
     
@@ -212,6 +184,18 @@ class WallGalleryTableViewController: UITableViewController, UIPopoverPresentati
             saveWall(wall: wallGallery.walls[index], at: index)
         }
     }
+    
+    // MARK: Pop Menu Delegates
+    
+    func wallAdded(withName name: String, withColor color: UIColor) {
+        var wall = Wall()
+        wall.name = name
+        wall.colorValues = color.rgb()
+        wall.dateCreated = Date()
+        wallGallery.walls.insert(wall, at: 0)
+        saveWallGalleryDocument()
+        tableView.reloadData()
+    }
 
 }
 
@@ -219,6 +203,26 @@ extension WallGalleryTableViewController {
     private struct constants {
         static let fileName: String = "wallgalleryfile.json"
         static let heightDivider: CGFloat = 2.5
+        static let cornerRadius: CGFloat = 8.0
+    }
+}
+
+extension UIColor {
+    func rgb() -> [Float] {
+        var fRed: CGFloat = 0.0
+        var fGreen: CGFloat = 0.0
+        var fBlue: CGFloat = 0.0
+        var fAlpha: CGFloat = 0.0
+        
+        var values: [Float] = []
+        
+        if self.getRed(&fRed, green: &fGreen, blue: &fBlue, alpha: &fAlpha) {
+            values.append(Float(fRed))
+            values.append(Float(fGreen))
+            values.append(Float(fBlue))
+            values.append(Float(fAlpha))
+        }
+        return values
     }
 }
 
