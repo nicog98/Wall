@@ -24,5 +24,5 @@ class WallDocument: UIDocument {
     override func contents(forType typeName: String) throws -> Any {
         return wall?.json ?? Data()
     }
-    
+     
 }

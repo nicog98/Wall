@@ -48,7 +48,7 @@
 		3F0743BB1FCC7E9A00582591 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F0743C21FCC7F0B00582591 /* Wall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wall.swift; sourceTree = "<group>"; };
 		3F0743C41FCC842500582591 /* WallPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallPost.swift; sourceTree = "<group>"; };
-		3F0743C61FCC992F00582591 /* WallGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallGallery.swift; sourceTree = "<group>"; };
+		3F0743C61FCC992F00582591 /* WallGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallGallery.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
 		3F0A50501FD219D9006B6046 /* WallGalleryDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallGalleryDocument.swift; sourceTree = "<group>"; };
 		3F18CDE61FCF614D00B15F93 /* MovieWallCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieWallCollectionViewCell.swift; sourceTree = "<group>"; };
 		3F1D74D61FCF6F580056E7F9 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };

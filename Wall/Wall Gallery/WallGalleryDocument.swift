@@ -26,5 +26,6 @@ class WallGalleryDocument: UIDocument {
     override func contents(forType typeName: String) throws -> Any {
         return wallGallery?.json ?? Data()
     }
+ 
 
 }

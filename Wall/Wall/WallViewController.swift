@@ -401,7 +401,6 @@ CameraViewControllerDelegate, DrawViewControllerDelegate, JournalViewControllerD
             } else if wall?.posts[indexPath.item].type == .text {
                 performSegue(withIdentifier: "journalPage", sender: self)
             } else if wall?.posts[indexPath.item].type == .file {
-                //documentp = UIDocumentPickerViewController(url: (wall?.posts[indexPath.item].url)!, in: .exportToService)
                 documentp = UIDocumentPickerViewController(documentTypes: WallViewController.constants.types, in: .open)
                 present(documentp, animated: true, completion: nil)
             }

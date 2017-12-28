@@ -12,7 +12,6 @@
 //  Created by Nicolai Garcia on 11/27/17.
 //  Copyright © 2017 Nicolai Garcia. All rights reserved.
 //
-
 import UIKit
 
 class WallGalleryTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate,
@@ -44,7 +43,7 @@ WallGalleryTableViewCellDelegate, WallViewControllerDelegate, PopMenuTableViewCo
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -72,11 +71,10 @@ WallGalleryTableViewCellDelegate, WallViewControllerDelegate, PopMenuTableViewCo
     }
     
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return wallGallery.walls.count
     }
@@ -124,7 +122,7 @@ WallGalleryTableViewCellDelegate, WallViewControllerDelegate, PopMenuTableViewCo
         }
         return cell
     }
-
+    
     // Override to support editing the table.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -135,14 +133,13 @@ WallGalleryTableViewCellDelegate, WallViewControllerDelegate, PopMenuTableViewCo
             saveWallGalleryDocument()
         }
     }
-
+    
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
     }
-
+    
     // MARK: - Navigation
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let wallView = segue.destination as? WallViewController {
             wallView.wall = selectedWall
@@ -196,7 +193,7 @@ WallGalleryTableViewCellDelegate, WallViewControllerDelegate, PopMenuTableViewCo
         saveWallGalleryDocument()
         tableView.reloadData()
     }
-
+    
 }
 
 extension WallGalleryTableViewController {
@@ -225,4 +222,3 @@ extension UIColor {
         return values
     }
 }
-
